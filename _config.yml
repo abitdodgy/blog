@@ -1,0 +1,27 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+
+# Setup
+title:               'Mohamad El-Husseini'
+tagline:             ''
+description:         'Mohamad El-Husseini, sharing his brilliant thoughts.'
+url:                 'http://mohamad.im'
+baseurl:             ''
+paginate:            5
+
+# About/contact
+author:
+  name:              'Mohamad El-Husseini'
+  url:               'https://twitter.com/abitdodgy'
+  email:             'husseini.mel@gmail.com'
+
+# Custom vars
+version:             1.0.0
+
+gems:
+  - jekyll-paginate
+
+paginate: 5
+paginate_path: "/page:num/"
+safe: false
