@@ -1,9 +1,7 @@
 ---
 layout: post
-title: Introducing Ruby Gem I18nLazyScope
+title: On Finding a Job
 ---
-
-# On Finding a Job
 
 Last month at Aerogami we ran out of money and decided to halt development of new features on our product, Nimbus Workspaces. Instead, we decide to continue to fix bugs and provide support. It's not the end of the world, and we aren't giving up. But we need money to live, and for me, it means it's time to put my entrepreneurship ambitions aside and look for a job.
 
