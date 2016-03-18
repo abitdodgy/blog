@@ -7,7 +7,7 @@ Last month at Aerogami we ran out of money and decided to halt development of ne
 
 After years of independence, this is a scary thought.
 
-But still, I don't mind giving that up as long as I find a project I admire and believe in. After all, I wanted independence because I wanted to build things I believed made a difference in our world. There's no reason I can't do this somewhere else. And back then I didn't need the money; today I have two children and they're everything to me. If giving up being an entrepreneur is better for them, then I'm happy to make that sacrifice.
+But still, I don't mind giving that up as long as I find a project I admire and believe in. After all, I wanted independence because I wanted to build things I believed made a difference to people. There's no reason I can't do that elsewhere. And back then I didn't need the money; today I have two children. If giving up being an entrepreneur is better for them, then I'm happy to make that sacrifice.
 
 So I came to terms with my decision and enthusiastically started my job search.
 
@@ -31,16 +31,16 @@ When I wrote Bolão Social, the most complex algorithm I wrote calculates World 
 
 Frankenstein can write and ship quality code, after all.
 
-My point is, it's OK not to know this stuff for now. Right now my priority is to send my CV to potential employers, and not solve abstract computer science problems. Last year, my priority was building great features for Nimbus Workspaces, and not solve the Dinning Philosophers.
+My point is, it's OK not to know this stuff for now. Right now my priority is to send my CV to potential employers, and not solve abstract computer science problems. Last year, my priority was to build great features for Nimbus Workspaces, and not solve the Dinning Philosophers.
 
-That doesn't mean I don't want to study fundamental computer science concepts. Of course, I do. But I haven't needed to solve abstract, and often mathematical problems in my day-to-day work. Most of the time I build CRUD applications and UX components. Creating a product is hard, and my time is spent creating features and a good experience for my users.
+That doesn't mean I don't want to study fundamental computer science concepts. Of course, I do. But I haven't needed to solve abstract, and often mathematical problems in my day-to-day work. Most of the time I build CRUD applications and UX components. Creating a product is hard, and I have to spend my time solving real world problems.
 
-If the needed arises and these concepts become essential for my work, I'm more than happy to reach for the books. Meanwhile, I'll wait for an opportunity to study them without shunting my priorities aside.
+If the need arises and these concepts become essential for my work, I'm more than happy to reach for the books. Meanwhile, I'll wait for an opportunity to study them without shunting my priorities aside.
 
 So what does it all mean?
 
 It means there are gaps in my knowledge, and I may not be suitable for many engineering jobs out there. And that's OK because no one is suitable for every role in our industry. Nor should they be. My target pool is smaller, but when I find something it's likely to be a better fit, and I'll enjoy working there much more.
 
-Whatever product I end up working on, my focus will be on the things that make it successful. Whether that's solving abstract computer science problems, or writing a CRUD controller.
+Whatever product I end up working on, my focus will be on the things that make it successful. Whether that's solving abstract computer science problems, or writing CRUD controllers.
 
 Be lean and versatile. Take pride in your work, and don't feel bad about not being a genius. Hit the books as often as you can, but not at the expense of your priorities--unless your priorities necessitate that you hit the books. Reach for the stars, but don't forget that the moon is your first stop on the way.
