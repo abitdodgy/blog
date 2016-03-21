@@ -3,7 +3,7 @@ layout: post
 title: Introducing Ruby Gem I18nLazyScope
 ---
 
-Lately, I've been working on some projects that require internationalization. I find it annoying to have to type `namespace.key` each time I translate something. I *can* use [lazy lookup][2]--`t('.key')`--but it defaults to `locale.resource.key`, which is not always desirable.
+Lately, I've been working on some projects that require internationalization. I find it annoying to have to type `namespace.key` each time I translate something. I *can* use lazy lookup[^1]--`t('.key')`--but it defaults to `locale.resource.key`, which is not always desirable.
 
 Wouldn't it be nice if I could use lazy lookup and have granular control over the namespace? So, for example, if I typed `t(:key)` in `users#show` the scope would default to `en.views.users.show.key`.
 
@@ -30,7 +30,7 @@ def create
 end
 {% endhighlight %}
 
-The scope defaults to `en.welcome_msg`. This is not a good way to structure translations as they'll soon become messy and unmanagable. It's better to scope them under a namespace.
+Here, the scope for `welcome_message` defaults to `en`, the top level namespace. This is not a good way to structure locale files, and they'll soon become messy and unmanagable. It's better to scope them under a namespace.
 
 {% highlight yaml %}
 en:
@@ -75,3 +75,6 @@ Check out the [project repo on Github][2] for more details.
 [1]: https://github.com/abitdodgy/i18n_lazy_scope
 [2]: http://guides.rubyonrails.org/i18n.html#lazy-lookup
 [3]: https://github.com/svenfuchs/rails-i18n
+
+[^1]: [Lazy lookup][1] is a feature built into the [I18n][3] gem. It allows you to use translations without explicitly qualifying their scope. For example, calling `t('.hello')` (notice the dot preceding `hello`) in `app/views/users/show.html.erb` defaults the translation scope to `en.users.show.hello`.
+
