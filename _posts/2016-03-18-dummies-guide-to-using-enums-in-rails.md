@@ -145,8 +145,7 @@ Finally, use a database index. You will likely need to filter results by an enum
 add_index :posts, :status
 ```
 
-I hope you found this useful.
-
+I hope you found this post useful.
 
   [1]: http://stackoverflow.com/a/35595700/276959
   [2]: https://github.com/rails/rails/commit/c51f9b61ce1e167f5f58f07441adcfa117694301
