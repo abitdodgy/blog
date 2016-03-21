@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Four alternatives to using ActiveRecord Callbacks and Observers
+title: Four Alternatives to Using ActiveRecord Callbacks and Observers
 ---
 
 Callbacks suck, and many experienced Rails programmers will tell you so. It took me a couple of years to finally understand why, but I did eventually, and I have rarely used them since.
@@ -64,7 +64,7 @@ module UserRegistration
 end
 {% endhighlight %}
 
-It's not necessary to pass the user as an argument; concerns have access to instance variables in objects they're mixed into. But I prefer to be more explicit than rely on state. Passing the user as an argument defines an explicit contract between the caller and the callee.
+It's not necessary to pass the user as an argument; methods in concerns have access to the state of the objects they're mixed into. But I prefer to be more explicit than rely on state. Passing the user as an argument defines an explicit contract between the caller and the callee.
 
 Here's how we might use it.
 
@@ -142,7 +142,7 @@ end
 
 ### 4. Use a model method
 
-If you don't find the benefits concerns and service objects attractive, you can replace the callback with a regular method in your model.
+If you don't find the benefits of using concerns and service objects compelling, you can replace callbacks with vanilla methods in your model.
 
 {% highlight ruby %}
 class User < ActiveRecord::Base
@@ -168,7 +168,7 @@ class UsersController < ApplicatinController::Base
 end
 {% endhighlight %}
 
-Although this is an improvement on callbacks, I don't like it. In my opinion, an ActiveRecord model should be responsible for its persistence and internal business logic. It should not concern itself with sending e-mails.
+I'm not a fan of this approach, even if it's an improvement on callbacks. In my opinion, an ActiveRecord model should be responsible for its persistence and internal business logic only. It should not concern itself with sending e-mails.
 
 ## When do I use callbacks?
 
@@ -191,15 +191,12 @@ private
  end
 {% endhighlight %}
 
-But I look for ways to avoid them. For example, it's better to use [a setter method][2] to downcase the email.
+But I look for ways to avoid them. For example, it's better to use [a setter method][2] to downcase the email[^2].
 
 {% highlight ruby %}
 class User < ActiveRecord::Base
   before_create :set_token
 
-  # We can check for the presence of `value`, but we don't want to.
-  # It will be a blank string if a form is submitted with a blank email.
-  # So we avoid a `nil` error. Otherwise, a `nil` error is something we want.
   def email=(value)
     super(value.downcase)
   end
@@ -208,9 +205,10 @@ class User < ActiveRecord::Base
 end
 {% endhighlight %}
 
-Callbacks are not intrinsically bad, and they have their uses. But they give you a lot of rope to tie yourself with. They are attractive because they make certain tasks look and feel deceptively easy. But it's always worth asking yourself if there's a better way.
+Callbacks are not intrinsically bad, and they have their uses. But they give you a lot of rope to tie yourself with. They are attractive because they make certain tasks look and feel deceptively easy. It's always worth asking yourself if there's a better way.
 
 [1]: https://en.wikipedia.org/wiki/Single_responsibility_principle
 [2]: https://github.com/rails/rails/pull/19787/files
 
- [^1]: Because it violates SRP. It tightly couples user creation with sending emails. It obfuscates the intention of your code. It leads to undesirable side effects. It makes your code deterministic. Etc...
+[^1]: Because it violates SRP. It tightly couples user creation with sending emails. It obfuscates the intention of your code. It leads to undesirable side effects. It makes your code deterministic. Etc...
+[^2]: We *can* check for the presence of `value`, but we shouldn't; `value` will be an empty string when a form is submitted with a blank email. If we get errors because of `value` being `nil`, it's probably a bug in the application, and we want it to fail.

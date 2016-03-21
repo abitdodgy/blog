@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Dummies Guide to Using Enums in Rails
+title: A Guide to Using ActiveRecord's Enumerated Type
 ---
 
 I've used ActiveRecord's built in enumerated type a lot since it was introduced in Rails 4.1. Although it's getting a facelift in Rails 5, there are still plenty of gotchas to look out for.

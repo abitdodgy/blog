@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Adding a Dynamic Maintenance Mode for Your Rails App
+title: Adding a Dynamic Maintenance Mode to Your Rails App
 ---
 
 In an ideal world, you could update your application with zero downtime, and your users would be rewarded with snazzy new features without noticing how they got there.

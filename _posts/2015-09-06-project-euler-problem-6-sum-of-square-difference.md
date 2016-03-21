@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Project Euler Problem 6: Sum Square Difference"
+title: "Project Euler Problem 6: Sum of Square Difference"
 ---
 
 Let's solve problem six in Project Euler in a programming language of your choice. Yes, that's correct, you can choose!
