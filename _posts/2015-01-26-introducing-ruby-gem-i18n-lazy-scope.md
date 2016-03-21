@@ -11,7 +11,7 @@ So, to have my cake and eat it, I wrote [I18nLazyLookup][1]. **It lets you use l
 
 ## How does it work?
 
-The library inserts a **customisable** namespace in the scope between the `locale` and the `resource` keys. The following table shows the differences in bold between I18nLazyLookup and [i18n-rails][3].
+The library inserts a **customisable** namespace in the scope between the `locale` and the `resource` keys. The following table shows the differences (in bold) between I18nLazyLookup and [i18n-rails][3].
 
 | ------------|--------------------------------------------------------------|
 | Controllers | `locale.`**`controllers`**`.controller_name.action_name.key` |
@@ -44,15 +44,15 @@ en:
 redirect_to @user, notice: t('controllers.users.create.welcome_msg')
 {% endhighlight %}
 
-But that's a lot to type. It would be nice if we could write `t('.welcome_msg')`, but we can't because [rails-I18n][3] scopes the translation to `en.users.create.welcome_msg`. Our *controller* namespace is missing.
+This is better, but it's a lot to type. It would be nice if we could write `t('.welcome_msg')`, but we can't because [rails-I18n][3] scopes the translation to `en.users.create.welcome_msg`. Our *controller* namespace is missing.
 
-And that's where *I18nLazyLookup* comes in. **It lets you use lazy lookup with custom namespaces**. This makes changing the structure of translations easy.
+And that's where *I18nLazyLookup* helps. **It lets you use lazy lookup with custom namespaces**. This makes changing the structure of translations easy.
 
 {% highlight ruby %}
 redirect_to @user, notice: t_scoped(:welcome_msg)
 {% endhighlight %}
 
-You can customise the namespace using an initializer if the defaults don't work for you.
+If the defaults don't work for you, you can customise the namespaces with an initializer.
 
 {% highlight ruby %}
 # app/config/initializers/i18n_lazy_lookup.rb
@@ -63,7 +63,7 @@ I18nLazyScope.configure do |config|
 end
 {% endhighlight %}
 
-The namespace will now resolve to the following:
+The namespaces now resolve according to the following table.
 
 |-------------|-------------------------------------------------------|
 | Controllers | `locale.custom.scope.controller_name.action_name.key` |
