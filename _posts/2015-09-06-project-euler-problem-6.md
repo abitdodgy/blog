@@ -19,13 +19,13 @@ Up to $$n = 100$$ it is trivial, but we can use [math][1] to solve it up to mass
 
 ## Linear solution
 
-Sometimes the most obvious solution isn't necessarily the best one. Let's consider the problem linearly.
+Sometimes the most obvious solution isn't necessarily the best one.
 
 $$
 (1 + 2 + 3 + \cdots + 100)^2 + (1^2 + 2^2 + 3^2 + \cdots + 100^2)
 $$
 
-We can easily solve this in Ruby.
+This was my first try in Ruby.
 
 {% highlight ruby %}
 (1..100).reduce(:+)**2 - (1..100).map { |n| n**2 }.reduce(:+)
@@ -55,7 +55,7 @@ $$
 \left(\frac{n(n + 1)}{2}\right)^2 - \frac{n(n + 1)(2n + 1)}{6}
 $$
 
-With simple math we can solve this problem up to nonsensical numbers in microseconds. Here's the solution in Ruby; it's not terribly interesting.
+Using these formulas, we can solve this problem up to nonsensical numbers in microseconds. Here's the solution in Ruby; it's not terribly interesting.
 
 {% highlight ruby %}
 (n * (n + 1) / 2)**2 - (n * (n + 1)) * ((n * 2) + 1) / 6
@@ -73,7 +73,7 @@ def enum(n)
   n.downto 1 do |i|
     square_of_sum += i; sum_of_squares += i * i
   end
-  (square_of_sum *= square_of_sum) - sum_of_squares
+  square_of_sum**2 - sum_of_squares
 end
 
 def while_loop(n)
@@ -81,7 +81,7 @@ def while_loop(n)
   while n > 0
     square_of_sum += n; sum_of_squares += n * n; n -= 1
   end
-  (square_of_sum *= square_of_sum) - sum_of_squares
+  square_of_sum**2 - sum_of_squares
 end
 {% endhighlight %}
 
@@ -96,11 +96,13 @@ Benchmarking with 10^2703 iterations
 Induction  0.000000   0.000000   0.000000 (  0.000010)
 {% endhighlight %}
 
-Map and reduce, enumerator, and the while loop took 2.9, 1.6, and 1.2 seconds respectively. Using our equation we solved a ridiculously larger number in 10 microseconds, which is 10 millionth of a second. I ran these on my first gen MacBook Pro Retina.
+It's hardly surprising, but map/reduce, enumerator, and `while` loop took 2.9, 1.6, and 1.2 seconds respectively. I imagine `while` is faster because it deals only with primitive types and no data structures.
 
-## Linear solutions in Swift and JavaScript
+Using our equation took 10 microseconds for a ridiculously larger number, which is 10 millionth of a second. I ran these on my first gen MacBook Pro Retina.
 
-Predictably, solving this linearly in JavaScript is not very efficient for large numbers either. On my computer, using map and reduce fills up the stack and throws an exception at $$n \sim 130000$$, while using a loop solves up to $$n = 10^9$$ in circa 3.5 seconds.
+## Playing around with Swift and JavaScript
+
+Again, no surprises here, but I was curious.
 
 {% highlight javascript %}
 function diff(n) {
@@ -114,6 +116,8 @@ function diff(n) {
   return squareOfSum - sumOfSquares;
 }
 {% endhighlight %}
+
+On my computer, using map and reduce fills up the stack and throws an exception at $$n \sim 130000$$, while using a loop solves up to $$n = 10^9$$ in circa 3.5 seconds.
 
 Swift didn't fair much better.
 
